@@ -1,0 +1,70 @@
+-- =========================================
+-- MEDIDAS BASE
+-- =========================================
+
+Total Ventas =
+SUMX(
+    Ventas,
+    Ventas[Cantidad] * Ventas[PrecioUnitario]
+)
+
+Total Costo =
+SUMX(
+    Ventas,
+    Ventas[Cantidad] * Ventas[CostoUnitario]
+)
+
+-- =========================================
+-- RENTABILIDAD
+-- =========================================
+
+Utilidad =
+[Total Ventas] - [Total Costo]
+
+Margen % =
+DIVIDE(
+    [Utilidad],
+    [Total Ventas],
+    0
+)
+
+-- =========================================
+-- INTELIGENCIA TEMPORAL
+-- =========================================
+
+Ventas Mes Anterior =
+CALCULATE(
+    [Total Ventas],
+    PREVIOUSMONTH(Calendario[Date])
+)
+
+Ventas Año Anterior =
+CALCULATE(
+    [Total Ventas],
+    SAMEPERIODLASTYEAR(Calendario[Date])
+)
+
+-- =========================================
+-- INDICADORES DE CRECIMIENTO
+-- =========================================
+
+Crecimiento % =
+VAR VentasActual = [Total Ventas]
+VAR VentasAnterior = [Ventas Mes Anterior]
+RETURN
+IF(
+    -- Si no hay ventas el mes anterior evitamos valores incorrectos
+    ISBLANK(VentasAnterior) || VentasAnterior = 0,
+    BLANK(),
+    DIVIDE(VentasActual - VentasAnterior, VentasAnterior)
+)
+
+-- =========================================
+-- SEGMENTACIÓN
+-- =========================================
+
+Ventas Tecnología =
+CALCULATE(
+    [Total Ventas],
+    Productos[Categoria] = "Tecnología"
+)
