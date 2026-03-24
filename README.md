@@ -63,6 +63,8 @@ Aplicación de storytelling con datos
 
 Enfoque orientado a toma de decisiones
 
-👨‍💻 Autor
-Jean Paul Changanaqui
+## 👨‍💻 Autor
+
+Jean Paul Changanaqui  
 Ingeniero de Computación y Sistemas
+
