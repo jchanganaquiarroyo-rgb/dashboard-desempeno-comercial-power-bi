@@ -62,3 +62,7 @@ Construcción de dashboards ejecutivos
 Aplicación de storytelling con datos
 
 Enfoque orientado a toma de decisiones
+
+👨‍💻 Autor
+Jean Paul Changanaqui
+Ingeniero de Computación y Sistemas
