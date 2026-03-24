@@ -9,7 +9,7 @@ DAX
 Modelado de datos (Star Schema)  
 SQL (conceptos aplicados)  
 Business Intelligence
-##🧠 Enfoque
+## 🧠 Enfoque
 
 El dashboard responde tres preguntas clave:
 
